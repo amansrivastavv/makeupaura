@@ -5,8 +5,8 @@ import { motion, HTMLMotionProps } from "framer-motion";
 import { forwardRef, useRef, useState } from "react";
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
-  variant?: "primary" | "secondary" | "accent";
-  size?: "md" | "lg";
+  variant?: "primary" | "secondary" | "accent" | "outline";
+  size?: "sm" | "md" | "lg";
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -16,9 +16,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary: "bg-primary text-primary-foreground hover:bg-white/90 border border-transparent",
       secondary: "bg-transparent text-foreground border border-foreground/30 hover:border-foreground",
       accent: "bg-accent text-accent-foreground hover:bg-accent/90",
+      outline: "bg-transparent border border-input hover:bg-accent hover:text-accent-foreground",
     };
 
     const sizes = {
+      sm: "h-9 px-4 text-xs tracking-wider",
       md: "h-12 px-6 text-sm tracking-widest",
       lg: "h-14 px-10 text-base tracking-widest",
     };
