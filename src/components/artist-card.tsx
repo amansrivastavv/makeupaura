@@ -3,15 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface ArtistProps {
+  id: string;
   name: string;
   specialty: string;
   price: string;
   image: string;
 }
 
-export function ArtistCard({ name, specialty, price, image }: ArtistProps) {
+export function ArtistCard({ id, name, specialty, price, image }: ArtistProps) {
   return (
     <motion.div 
       className="group relative w-full aspect-[3/4] overflow-hidden bg-card"
@@ -41,7 +43,7 @@ export function ArtistCard({ name, specialty, price, image }: ArtistProps) {
             <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
                  <div className="pt-4 border-t border-white/20 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     <span className="font-sans text-sm">{price}</span>
-                    <span className="text-xs uppercase underline cursor-pointer">View Profile</span>
+                    <Link href={`/artists/${id}`} className="text-xs uppercase underline cursor-pointer hover:text-rose transition-colors">View Profile</Link>
                  </div>
             </div>
         </motion.div>

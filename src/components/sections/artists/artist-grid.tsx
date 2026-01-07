@@ -2,15 +2,9 @@
 
 import { ArtistCard } from "@/components/artist-card";
 import { motion } from "framer-motion";
+import { ARTISTS } from "@/data/artists";
 
-const ARTISTS = [
-  { name: "Prekshi Arora", specialty: "Bridal Specialist", price: "₹25,000", image: "/assets/artist-traditional.png" },
-  { name: "Sushma Chauhan", specialty: "Celebrity MUA", price: "₹40,000", image: "/assets/artist-glam.png" },
-  { name: "Ananya Style", specialty: "Airbrush Pro", price: "₹18,000", image: "/assets/artist-editorial.png" },
-  { name: "Meera Kapoor", specialty: "Editorial & Fashion", price: "₹35,000", image: "/assets/artist.png" },
-  { name: "Riya Singh", specialty: "Destination Weddings", price: "₹50,000", image: "/assets/hero-v2.png" },
-  { name: "Zara Khan", specialty: "Cinematic Glam", price: "₹22,000", image: "/assets/bridal.png" },
-];
+
 
 export function ArtistGrid() {
   return (

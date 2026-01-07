@@ -3,6 +3,7 @@
 import { ArtistCard } from "@/components/artist-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ARTISTS } from "@/data/artists";
 
 export function ArtistsSection() {
   return (
@@ -16,33 +17,17 @@ export function ArtistsSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Artist 1 */}
-                <div className="md:translate-y-12">
-                     <ArtistCard 
-                        name="Prekshi Arora" 
-                        specialty="Bridal Specialist" 
-                        price="₹25,000" 
-                        image="/assets/artist-traditional.png" 
-                     />
-                </div>
-                {/* Artist 2 */}
-                <div>
-                     <ArtistCard 
-                        name="Sushma Chauhan" 
-                        specialty="Celebrity MUA" 
-                        price="₹40,000" 
-                        image="/assets/artist-glam.png" 
-                     />
-                </div>
-                 {/* Artist 3 */}
-                 <div className="md:translate-y-24">
-                     <ArtistCard 
-                        name="Ananya Style" 
-                        specialty="Airbrush Pro" 
-                        price="₹18,000" 
-                        image="/assets/artist-editorial.png" 
-                     />
-                </div>
+                {ARTISTS.slice(0, 3).map((artist, index) => (
+                    <div key={artist.id} className={index % 2 !== 1 ? "md:translate-y-12" : ""}>
+                         <ArtistCard 
+                            id={artist.id}
+                            name={artist.name} 
+                            specialty={artist.specialty} 
+                            price={artist.price} 
+                            image={artist.image} 
+                         />
+                    </div>
+                ))}
             </div>
         </div>
     </section>
